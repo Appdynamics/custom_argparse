@@ -63,6 +63,8 @@ if args.turn:
         sys.stderr.write("Error: There is no rack to turn.")
         exit(1)
     turns = args.turn[0]
+else
+    turns = 1
 # ...
 ```
 
