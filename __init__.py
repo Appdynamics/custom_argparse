@@ -12,6 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+"""
+
+"""
+
+# __version__ = "$Revision$"
+
+# $Id$
+
 import argparse
 import sys
 
@@ -40,19 +48,21 @@ class ArgumentParser(argparse.ArgumentParser):
         """Similar to
         https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
         However, the description and usage_str fields are required.
-        :param description:
-        :param usage_str:
-        :param prog:
-        :param usage:
-        :param epilog:
-        :param parents:
-        :param formatter_class:
-        :param prefix_chars:
-        :param fromfile_prefix_chars:
-        :param argument_default:
-        :param conflict_handler:
-        :param add_help:
-        :return:
+        :param str description: Formatted string describing what the calling \
+        program does.
+        :param str usage_str: Formatted string containing flags, arguments and \
+        their descriptions for the calling program.
+        :param prog: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
+        :param usage: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
+        :param epilog: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
+        :param parents: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
+        :param formatter_class: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
+        :param prefix_chars: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
+        :param fromfile_prefix_chars:  See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
+        :param argument_default: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
+        :param conflict_handler: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
+        :param add_help: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
+        :return: a new ArgumentParser object
         """
         super.__init__(
             prog,
