@@ -64,18 +64,19 @@ class ArgumentParser(argparse.ArgumentParser):
         :param add_help: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
         :return: a new ArgumentParser object
         """
-        super.__init__(
-            prog,
-            usage,
-            description,
-            epilog,
-            parents,
-            formatter_class,
-            prefix_chars,
-            fromfile_prefix_chars,
-            argument_default,
-            conflict_handler,
-            add_help
+        argparse.ArgumentParser.__init__(
+            self,
+            prog=prog,
+            usage=usage,
+            description=description,
+            epilog=epilog,
+            parents=parents,
+            formatter_class=formatter_class,
+            prefix_chars=prefix_chars,
+            fromfile_prefix_chars=fromfile_prefix_chars,
+            argument_default=argument_default,
+            conflict_handler=conflict_handler,
+            add_help=add_help
         )
         self.usage_str = usage_str
 

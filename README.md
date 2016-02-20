@@ -15,6 +15,9 @@ The following instructions assume that you are adding custom_argparse to an exis
 ### Example Code:
 
 ```
+# for constants like argparse.SUPPRESS
+import argparse
+
 sys.path.append(
         os.path.join(sys.path[0], 'lib')
 )
@@ -52,7 +55,7 @@ cmdline = custom_argparse.ArgumentParser(
 # cmdline.add_argument(name or flags...[, action][, nargs][, const][, default][, type][, choices][, required]
 #   [, help][, metavar][, dest])
 cmdline.add_argument('-r', '--rack', action='store_true', required=False)
-cmdline.add_argument('-t', '--turn', nargs=1, required=False)
+cmdline.add_argument('-t', '--turn', nargs='?', default=argparse.SUPPRESS required=False)
 cmdline.add_argument('-s', '--soft-cushion', action='store_true', required=False)
 cmdline.add_argument('-c', '--comfy-chair', action='store_true', required=False)
 
@@ -62,9 +65,7 @@ if args.turn:
     if not args.rack:
         sys.stderr.write("Error: There is no rack to turn.")
         exit(1)
-    turns = args.turn[0]
-else
-    turns = 1
+    turns = args.turn[0] if args.turn[0] else 1
 # ...
 ```
 
