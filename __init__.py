@@ -33,9 +33,8 @@ class ArgumentParser(argparse.ArgumentParser):
     def __init__(
             self,
             description,
-            usage_str,
+            usage,
             prog=None,
-            usage=None,
             epilog=None,
             parents=[],
             formatter_class=argparse.HelpFormatter,
@@ -50,10 +49,9 @@ class ArgumentParser(argparse.ArgumentParser):
         However, the description and usage_str fields are required.
         :param str description: Formatted string describing what the calling \
         program does.
-        :param str usage_str: Formatted string containing flags, arguments and \
+        :param str usage: Formatted string containing flags, arguments and \
         their descriptions for the calling program.
         :param prog: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
-        :param usage: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
         :param epilog: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
         :param parents: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
         :param formatter_class: See https://docs.python.org/2/library/argparse.html#argparse.ArgumentParser
@@ -78,17 +76,16 @@ class ArgumentParser(argparse.ArgumentParser):
             conflict_handler=conflict_handler,
             add_help=add_help
         )
-        self.usage_str = usage_str
 
     def print_usage(self, fd=None):
         if fd is None:
             fd = sys.stderr
-        self._print_message(self.usage_str, fd)
+        self._print_message(self.usage, fd)
 
     def print_help(self, fd=None):
         if fd is None:
             fd = sys.stderr
-        self._print_message('\n' + self.description + '\n' + self.usage_str, fd)
+        self._print_message('\n' + self.description + '\n' + self.usage, fd)
 
     def error(self, message):
         self._print_message("error: {0}\n\n".format(message), sys.stderr)
