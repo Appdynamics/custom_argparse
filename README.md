@@ -48,9 +48,10 @@ Options:
 # Set up command line arg parser.
 #
 # Be careful here. add_help=True causes the program to immediately print the
-# help message and exit(0) when cmdline.parse_args() is called.  Explicitly
-# add -h / --help with cmdline.add_argument() and choose an action other than
-# 'help' if you want other behavior.
+# help message and exit(0) when cmdline.parse_args() is called and it
+# encounters '-h' or '--help'.  Explicitly add -h / --help with
+# cmdline.add_argument() and choose an action other than 'help' if you want
+# other behavior.
 #
 cmdline = custom_argparse.ArgumentParser(
     description=DESCRIPTION,
