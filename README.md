@@ -55,7 +55,7 @@ Options:
 #
 cmdline = custom_argparse.ArgumentParser(
     description=DESCRIPTION,
-    usage_str=USAGE_STR,
+    usage=USAGE_STR,
     add_help=True
 )
 
